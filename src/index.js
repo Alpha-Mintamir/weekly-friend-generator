@@ -1,3 +1,6 @@
+// Load environment variables from .env file
+require("dotenv").config(); // This will load the API key from .env
+
 // List of all possible names that can be paired
 const people = [
   "Alphi",
@@ -90,7 +93,7 @@ function generateFriend(event) {
   event.preventDefault(); // Prevent form from submitting and refreshing the page
 
   let instructionsInput = document.querySelector("#user-instructions"); // Get the user's input
-  let apiKey = "7b0b1a730a9afbf1o04aca30fc06dtfc"; // Replace with your valid API key
+  let apiKey = process.env.API_KEY; // Retrieve API key from environment variable
 
   // Check if the input is empty, and provide a fallback
   if (instructionsInput.value.trim() === "") {
